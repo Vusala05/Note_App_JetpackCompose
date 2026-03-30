@@ -15,11 +15,14 @@ object Dimens {
     val frame_height = 231.dp
     val button_width = 386.dp
     val add_btn_width = 77.dp
-    val add_task_width = 297.dp
+    val delete_btn_width = 76.dp
+    val add_task_width = 257.dp
     val option_height = 35.dp
 
 
-    val dp1 = 4.dp // formula -> index * 4
+    val dp1 = 4.dp// formula -> index * 4
+    val dp2 = 8.dp
+    val dp3 = 12.dp
     val dp4 = 16.dp
     val dp6 = 24.dp
     val dp16 = 56.dp

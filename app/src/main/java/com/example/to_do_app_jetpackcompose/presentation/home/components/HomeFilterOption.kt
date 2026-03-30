@@ -10,9 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.to_do_app_jetpackcompose.R
+import com.example.to_do_app_jetpackcompose.core.common.BaseTheme
 
 @Composable
 fun FilterChip(
@@ -22,9 +25,9 @@ fun FilterChip(
 ) {
     Surface(
         onClick = onClick,
-        shape = RoundedCornerShape(8.dp),
-        color = if (isSelected) Color(0xFFE6D9CB) else Color(0xFFF3EFEE),
-        modifier = Modifier.height(35.dp)
+        shape = RoundedCornerShape(BaseTheme.dimens.dp2),
+        color = if (isSelected) colorResource(R.color.cream) else colorResource(R.color.light_gray),
+        modifier = Modifier.height(BaseTheme.dimens.option_height)
     ) {
         Box(
             contentAlignment = Alignment.Center,
@@ -32,9 +35,7 @@ fun FilterChip(
         ) {
             Text(
                 text = text,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold,
-                color = if (isSelected) Color.Black else Color.Gray
+               style = if(isSelected) BaseTheme.textStyle.tB12 else BaseTheme.textStyle.t12
             )
         }
     }

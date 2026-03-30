@@ -22,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
@@ -29,6 +30,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.to_do_app_jetpackcompose.R
+import com.example.to_do_app_jetpackcompose.core.common.BaseTheme
 import com.example.to_do_app_jetpackcompose.domain.model.Note
 
 
@@ -60,10 +62,10 @@ fun NoteItem(
         contentAlignment = Alignment.CenterEnd
     ) {
         Icon(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+            painter = painterResource(id = R.drawable.delete_icon),
             contentDescription = null,
             modifier = Modifier
-                .size(76.dp,56.dp)
+                .size(BaseTheme.dimens.delete_btn_width,BaseTheme.dimens.dp16)
                 .padding(end = 23.dp)
                 .clickable { onItemDeleted() },
             tint = Color.Unspecified,
@@ -80,7 +82,7 @@ fun NoteItem(
                 .fillMaxWidth()
                 .padding(vertical = 12.dp, horizontal = 22.dp)
                 .clickable { onNoteClick() }
-                .background(Color(0xFFF3EFEE), RoundedCornerShape(12.dp)),
+                .background(colorResource(R.color.light_gray), RoundedCornerShape( BaseTheme.dimens.dp2)),
 
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -92,7 +94,7 @@ fun NoteItem(
 
             Text(
                 text = note.text,
-                modifier = Modifier.padding(start = 8.dp),
+                modifier = Modifier.padding(start = BaseTheme.dimens.dp2),
                 style = TextStyle(
                     fontSize = 16.sp,
                     color = if (note.isDone) Color.Gray else Color.Black,

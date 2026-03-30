@@ -19,8 +19,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.to_do_app_jetpackcompose.R
+import com.example.to_do_app_jetpackcompose.core.common.BaseTheme
+import com.example.to_do_app_jetpackcompose.core.common.Dimens
 import com.example.to_do_app_jetpackcompose.domain.model.Note
 
 @Composable
@@ -45,16 +50,17 @@ fun HomeBottomSection(
             onValueChange = { tfValue = it },
             modifier = Modifier
                 .padding(start = 21.dp, top = 14.dp, bottom = 14.dp)
-                .size(256.dp, 56.dp),
-            shape = RoundedCornerShape(12.dp),
+                .size(BaseTheme.dimens.add_task_width, BaseTheme.dimens.dp16),
+            shape = RoundedCornerShape(BaseTheme.dimens.dp3),
             placeholder = {
-                Text(text = "Write a task...", color = Color.Gray)
+                Text(text = stringResource(R.string.write_task),
+                    style = BaseTheme.textStyle.t18)
             },
             colors = OutlinedTextFieldDefaults.colors(
                 focusedTextColor = Color.Black,
                 unfocusedTextColor = Color.Black,
-                focusedContainerColor = Color.Yellow,
-                unfocusedContainerColor = Color.Yellow,
+                focusedContainerColor = colorResource(R.color.light_gray),
+                unfocusedContainerColor = colorResource(R.color.light_gray),
                 focusedBorderColor = Color.Transparent,
                 unfocusedBorderColor = Color.Transparent,
                 cursorColor = Color.Black
@@ -73,17 +79,18 @@ fun HomeBottomSection(
                 }
             },
             modifier = Modifier
-                .padding(start = 12.dp, end = 22.dp, top = 14.dp, bottom = 14.dp)
-                .size(77.dp, 56.dp),
-            shape = RoundedCornerShape(12.dp),
+                .padding(start = BaseTheme.dimens.dp3, end = 22.dp, top = 14.dp, bottom = 14.dp)
+                .size(BaseTheme.dimens.add_btn_width, BaseTheme.dimens.dp16),
+            shape = RoundedCornerShape(BaseTheme.dimens.dp3),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Red,
+                containerColor = colorResource(R.color.dark_charcoal),
                 contentColor = Color.White
             )
         ) {
             Text(
-                text = if (selectedNote == null) "Add" else "Edit",
-                fontSize = 12.sp
+                text = if (selectedNote == null) stringResource(R.string.add) else stringResource(R.string.edit),
+                style = BaseTheme.textStyle.t18,
+                color = Color.White
             )
         }
     }

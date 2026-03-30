@@ -10,9 +10,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.to_do_app_jetpackcompose.R
+import com.example.to_do_app_jetpackcompose.core.common.BaseTheme
 import com.example.to_do_app_jetpackcompose.core.common.NoteFilter
 
 @Composable
@@ -25,7 +28,7 @@ fun HomeScreenTopSection(
             .fillMaxWidth()
             .padding(top = 56.dp, start = 22.dp, end = 22.dp),
     ) {
-        Text(text = "Today", fontSize = 36.sp, fontWeight = FontWeight.Bold)
+        Text(text = stringResource(R.string.today), style = BaseTheme.textStyle.tB36)
         Spacer(modifier = Modifier.height(32.dp))
 
         Row(
