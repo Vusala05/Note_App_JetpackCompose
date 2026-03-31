@@ -8,7 +8,7 @@ import androidx.compose.ui.text.font.FontWeight
 object TextStyle {
 
     val t18 = TextStyle(
-        fontSize = BaseTheme.dimens.sp03,
+        fontSize = BaseTheme.dimens.sp02,
         fontWeight = FontWeight.W500,
     )
     val t36 = TextStyle(
