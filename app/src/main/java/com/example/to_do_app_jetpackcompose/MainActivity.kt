@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.to_do_app_jetpackcompose.presentation.home.HomeRootScreen
 import com.example.to_do_app_jetpackcompose.ui.theme.To_Do_App_JetpackComposeTheme
+import com.example.to_do_app_jetpackcompose.ui.theme.navigation.Navigation
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,7 +23,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             To_Do_App_JetpackComposeTheme {
-                HomeRootScreen()
+                To_Do_App_JetpackComposeTheme {
+                    Navigation()
+                }
             }
         }
     }
